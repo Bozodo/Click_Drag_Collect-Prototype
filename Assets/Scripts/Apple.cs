@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Apple : MonoBehaviour
+{
+    public static float bottomY = -20f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(transform.position.y < bottomY)
+        {
+            //Destroy is scheduled at the end of update
+            //You can still write code past the Destroy because of this
+            Destroy(this.gameObject);
+
+            ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+
+            apScript.AppleDestroyed();
+        }
+    }
+
+    
+}
