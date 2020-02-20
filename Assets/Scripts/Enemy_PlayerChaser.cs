@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy_PlayerChaser : MonoBehaviour
 {
+    public int hp;
+    public Text hpText;
+    public Text winText;
     public GameObject player;
     public Transform playerTransform;
     public int MoveSpeed = 1; // you can adjust speed based on different level
@@ -24,6 +28,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hp = 5;
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
 
@@ -64,7 +69,22 @@ public class Enemy_PlayerChaser : MonoBehaviour
         {
             //yield return new WaitForSecondsRealtime(5);
             //enemyRB.Sleep();
+            if(playerVelocity > enemyVelocity)
+            {
+                hp -= 1;
+                SetHPText();
+            }
             StartCoroutine(waiter());
+        }
+    }
+
+    public void SetHPText()
+    {
+        hpText.text = "Enemy HP: " + hp.ToString();
+        if (hp == 0)
+        {
+            winText.text = "Wow you really showed that red cylinder";
+            Destroy(this.gameObject);
         }
     }
 
