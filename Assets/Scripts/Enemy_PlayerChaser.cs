@@ -12,17 +12,21 @@ public class Enemy_PlayerChaser : MonoBehaviour
     public int lungeMultiplier = 3;
     public int waitTime = 3;
     private Rigidbody enemyRB;
+    private Rigidbody playerRB;
 
     [Header("Dynamic Stuff")]
     public Vector3 enemyPos;
     public float distanceFromPlayer;
-    public Vector3 enemyVelocity;
+    public float enemyVelocity;
+    public float playerVelocity;
     public bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRB = GetComponent<Rigidbody>();
+        playerRB = player.GetComponent<Rigidbody>();
+
         StartCoroutine(waiter());
     }
 
@@ -30,7 +34,9 @@ public class Enemy_PlayerChaser : MonoBehaviour
     void FixedUpdate()
     {
         enemyPos = transform.position;
-        enemyVelocity = enemyRB.velocity;
+        //technically not correct but I need floats
+        enemyVelocity = enemyRB.velocity.magnitude;
+        playerVelocity = playerRB.velocity.magnitude;
         distanceFromPlayer = Vector3.Distance(enemyPos, playerTransform.position);
         
 
