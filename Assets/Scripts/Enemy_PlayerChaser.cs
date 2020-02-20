@@ -83,7 +83,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
         hpText.text = "Enemy HP: " + hp.ToString();
         if (hp == 0)
         {
-            winText.text = "Wow you really showed that red cylinder";
+            winText.text = "Wow you totally owned that red cylinder";
             Destroy(this.gameObject);
         }
     }
