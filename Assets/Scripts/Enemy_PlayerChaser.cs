@@ -8,6 +8,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     public int hp;
     public Text hpText;
     public Text winText;
+    public Text helpText;
     public GameObject player;
     public Transform playerTransform;
     public int MoveSpeed = 1; // you can adjust speed based on different level
@@ -32,7 +33,9 @@ public class Enemy_PlayerChaser : MonoBehaviour
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
 
+        helpText.text = "Crash into the Cylinder to reduce its HP!";
         StartCoroutine(waiter());
+        //helpText.text = "";
     }
 
     // Update is called once per frame
@@ -74,6 +77,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
                 hp -= 1;
                 SetHPText();
             }
+            helpText.text = "It's stunned! BEAT IT UP!";
             StartCoroutine(waiter());
         }
     }
@@ -88,9 +92,32 @@ public class Enemy_PlayerChaser : MonoBehaviour
         }
     }
 
+    public void SetHelpText()
+    {
+
+    }
+
     IEnumerator waiter()
     {
         canMove = false;
+
+        if (helpText.text != "It's stunned! BEAT IT UP!")
+        {
+            yield return new WaitForSecondsRealtime(waitTime);
+            helpText.text = "";
+            canMove = true;
+        }
+
+        else if (helpText.text != "")
+        {
+            yield return new WaitForSecondsRealtime(4);
+            helpText.text = "";
+            canMove = true;
+        }
+
+        
+
+
 
         yield return new WaitForSecondsRealtime(waitTime);
 
