@@ -342,6 +342,7 @@ MonoBehaviour:
   enemyPos: {x: 0, y: 0, z: 0}
   distanceFromPlayer: 0
   enemyVelocity: {x: 0, y: 0, z: 0}
+  canMove: 1
 --- !u!135 &163047771
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -841,14 +842,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1755599564}
   playerTransform: {fileID: 1755599568}
-  MoveSpeed: 5
+  MoveSpeed: 1
   trackingDistance: 0
-  lungeDistance: 3
-  lungeMultiplier: 2
+  lungeDistance: 8
+  lungeMultiplier: 4
   waitTime: 3
   enemyPos: {x: 0, y: 0, z: 0}
   distanceFromPlayer: 0
   enemyVelocity: {x: 0, y: 0, z: 0}
+  canMove: 1
 --- !u!136 &795669731
 CapsuleCollider:
   m_ObjectHideFlags: 0

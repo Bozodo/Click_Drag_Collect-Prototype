@@ -57,7 +57,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
         if (collidedWith.tag == "Player")
         {
             //yield return new WaitForSecondsRealtime(5);
-            enemyRB.Sleep();
+            //enemyRB.Sleep();
             StartCoroutine(waiter());
         }
     }
