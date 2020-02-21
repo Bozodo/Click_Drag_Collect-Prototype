@@ -1030,7 +1030,7 @@ MonoBehaviour:
   helpText: {fileID: 1755892894}
   player: {fileID: 1755599564}
   playerTransform: {fileID: 1755599568}
-  MoveSpeed: 3
+  MoveSpeed: 4
   trackingDistance: 0
   lungeDistance: 8
   lungeMultiplier: 4
