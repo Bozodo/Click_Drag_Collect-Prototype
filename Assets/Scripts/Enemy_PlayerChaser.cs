@@ -29,8 +29,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //hp = hp;
-        hpText.text = "Enemy HP: " + hp.ToString();
+        hp = 5;
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
 
@@ -89,7 +88,6 @@ public class Enemy_PlayerChaser : MonoBehaviour
         if (hp == 0)
         {
             winText.text = "Wow you totally owned that red cylinder";
-            Instantiate(this.gameObject);
             Destroy(this.gameObject);
         }
     }
