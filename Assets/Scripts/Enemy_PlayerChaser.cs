@@ -25,6 +25,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     public float enemyVelocity;
     public float playerVelocity;
     public bool canMove = true;
+    public static bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,13 +37,21 @@ public class Enemy_PlayerChaser : MonoBehaviour
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
         hpText.text = "Enemy HP: " + hp.ToString();
+        winText.text = "";
+
+        canMove = true;
+        isAlive = true;
+
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
 
         
-
-        helpText.text = "Crash into the Cylinder to reduce its HP!";
-        StartCoroutine(waiter());
+        if(PrototypeDriver.count == 0)
+        {
+            helpText.text = "Crash into the Cylinder to reduce its HP!";
+            StartCoroutine(waiter());
+        }
+        
         //helpText.text = "";
     }
 
@@ -95,7 +104,17 @@ public class Enemy_PlayerChaser : MonoBehaviour
         hpText.text = "Enemy HP: " + hp.ToString();
         if (hp == 0)
         {
-            winText.text = "Wow you totally owned that red cylinder";
+            if(PrototypeDriver.count == 0)
+            {
+                winText.text = "Wow you totally owned that red cylinder";
+            }
+
+            else
+            {
+                winText.text = "Here comes another";
+            }
+            
+            isAlive = false;
             Destroy(this.gameObject);
         }
     }
@@ -123,7 +142,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
             canMove = true;
         }
 
-        
+
 
 
 

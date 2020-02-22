@@ -8,12 +8,15 @@ public class PlayerHealth : MonoBehaviour
     public int hp;
     public Text hpText;
     public Text dedText;
+    public Text countText;
     public GameObject enemy;
     private Rigidbody enemyRB;
     private Rigidbody playerRB;
 
     public float enemyVelocity;
     public float playerVelocity;
+
+    public static bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +53,10 @@ public class PlayerHealth : MonoBehaviour
         if (hp == 0)
         {
             dedText.text = "ded";
+            isAlive = false;
             Destroy(this.gameObject);
         }
     }
+
+
 }
