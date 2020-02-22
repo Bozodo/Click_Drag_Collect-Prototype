@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         SetHPText();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
         enemyRB = enemy.GetComponent<Rigidbody>();
         playerRB = GetComponent<Rigidbody>();
     }

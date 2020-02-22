@@ -29,9 +29,17 @@ public class Enemy_PlayerChaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hpText = GameObject.Find("EnemyHP").GetComponent<Text>();
+        winText = GameObject.Find("WinConditionText").GetComponent<Text>();
+        helpText = GameObject.Find("HelpfulText").GetComponent<Text>();
+        player = GameObject.Find("Player");
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+
         hpText.text = "Enemy HP: " + hp.ToString();
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
+
+        
 
         helpText.text = "Crash into the Cylinder to reduce its HP!";
         StartCoroutine(waiter());
