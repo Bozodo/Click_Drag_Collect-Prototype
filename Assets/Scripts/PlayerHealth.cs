@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int hp;
     public Text hpText;
     public Text dedText;
-    public Text countText;
+    //public Text countText;
     public GameObject enemy;
     private Rigidbody enemyRB;
     private Rigidbody playerRB;

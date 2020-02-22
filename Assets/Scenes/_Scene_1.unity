@@ -440,7 +440,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -777,7 +777,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1755599570}
   - component: {fileID: 1755599569}
   - component: {fileID: 1755599571}
+  - component: {fileID: 1755599572}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755599564}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f09199b47f6fc0d48b3a122eaca79b8d, type: 3}
   m_Name: 
@@ -935,13 +936,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117b9f6b3246e8c4e990f4e5e58cd634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 10
   hpText: {fileID: 1694109319}
   dedText: {fileID: 1978891334}
-  countText: {fileID: 0}
   enemy: {fileID: 0}
   enemyVelocity: 0
   playerVelocity: 0
+--- !u!114 &1755599572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755599564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b227ffcf23cd249966fcfb629565c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  countText: {fileID: 0}
+  winText: {fileID: 0}
 --- !u!1 &1978891332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1069,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2134383788
 MonoBehaviour:
@@ -1076,7 +1091,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

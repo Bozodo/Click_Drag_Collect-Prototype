@@ -16,6 +16,7 @@ public class PrototypeDriver : MonoBehaviour
     void Start()
     {
         count = 0;
+        countText.text = "Cylinders Destroyed: ";
         Instantiate<GameObject>(enemyPrefab);
         enemyPrefab.transform.position = enemySpawn;
     }
