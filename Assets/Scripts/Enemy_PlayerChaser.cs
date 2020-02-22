@@ -29,7 +29,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = 5;
+        hpText.text = "Enemy HP: " + hp.ToString();
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
 
@@ -77,7 +77,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
                 hp -= 1;
                 SetHPText();
             }
-            helpText.text = "It's stunned! BEAT IT UP!";
+            helpText.text = "BEAT IT UP!";
             StartCoroutine(waiter());
         }
     }
@@ -101,7 +101,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     {
         canMove = false;
 
-        if (helpText.text != "It's stunned! BEAT IT UP!")
+        if (helpText.text != "BEAT IT UP!")
         {
             yield return new WaitForSecondsRealtime(waitTime);
             helpText.text = "";

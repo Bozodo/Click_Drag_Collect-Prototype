@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = 5;
+        SetHPText();
         enemyRB = enemy.GetComponent<Rigidbody>();
         playerRB = GetComponent<Rigidbody>();
     }
