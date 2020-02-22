@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9cc5675e12c6b4bb5e7c280699bd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 5
   hpText: {fileID: 0}
   winText: {fileID: 0}
   helpText: {fileID: 0}

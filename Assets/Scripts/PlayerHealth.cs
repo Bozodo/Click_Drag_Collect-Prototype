@@ -29,6 +29,10 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyRB = enemy.GetComponent<Rigidbody>();
+        playerRB = GetComponent<Rigidbody>();
+
         enemyVelocity = enemyRB.velocity.magnitude;
         playerVelocity = playerRB.velocity.magnitude;
     }

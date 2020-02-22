@@ -47,6 +47,7 @@ public class PrototypeDriver : MonoBehaviour
     void EnemySpawner()
     {
         Instantiate<GameObject>(enemyPrefab);
+        //PlayerHealth.enemy = GameObject.FindGameObjectWithTag("Enemy");
         enemyPrefab.transform.position = enemySpawn;
     }
 
