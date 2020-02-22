@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int hp;
     public Text hpText;
     public Text dedText;
-    public GameObject enemy;
+    public GameObject enemy = GameObject.FindWithTag("Enemy");
     private Rigidbody enemyRB;
     private Rigidbody playerRB;
 
@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         hp = 5;
         enemyRB = enemy.GetComponent<Rigidbody>();
         playerRB = GetComponent<Rigidbody>();
+        enemy = GameObject.FindWithTag("Enemy");
     }
 
     // Update is called once per frame

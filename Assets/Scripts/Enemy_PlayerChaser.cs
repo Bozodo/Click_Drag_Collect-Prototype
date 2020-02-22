@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Enemy_PlayerChaser : MonoBehaviour
 {
     public int hp;
-    public Text hpText;
-    public Text winText;
-    public Text helpText;
-    public GameObject player;
-    public Transform playerTransform;
+    public Text hpText = GameObject.Find("EnemyHP").GetComponent<Text>();
+    public Text winText = GameObject.Find("WinConditionText").GetComponent<Text>();
+    public Text helpText = GameObject.Find("HelpfulText").GetComponent<Text>();
+    public GameObject player = GameObject.Find("Player");
+    public Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     public int MoveSpeed = 1; // you can adjust speed based on different level
     public int trackingDistance = 0;
     public int lungeDistance = 3;
@@ -25,6 +25,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     public float enemyVelocity;
     public float playerVelocity;
     public bool canMove = true;
+    public static bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,12 @@ public class Enemy_PlayerChaser : MonoBehaviour
         hpText.text = "Enemy HP: " + hp.ToString();
         enemyRB = GetComponent<Rigidbody>();
         playerRB = player.GetComponent<Rigidbody>();
+
+        hpText = GameObject.Find("EnemyHP").GetComponent<Text>();
+        winText = GameObject.Find("WinConditionText").GetComponent<Text>();
+        helpText = GameObject.Find("HelpfulText").GetComponent<Text>();
+        player = GameObject.Find("Player");
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
         helpText.text = "Crash into the Cylinder to reduce its HP!";
         StartCoroutine(waiter());
@@ -78,7 +85,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
                 hp -= 1;
                 SetHPText();
             }
-            helpText.text = "It's stunned! BEAT IT UP!";
+            helpText.text = "BEAT IT UP!";
             StartCoroutine(waiter());
         }
     }
@@ -89,7 +96,8 @@ public class Enemy_PlayerChaser : MonoBehaviour
         if (hp == 0)
         {
             winText.text = "Wow you totally owned that red cylinder";
-            Instantiate(this.gameObject);
+            //Instantiate(this.gameObject);
+            isAlive = false;
             Destroy(this.gameObject);
         }
     }
@@ -103,7 +111,7 @@ public class Enemy_PlayerChaser : MonoBehaviour
     {
         canMove = false;
 
-        if (helpText.text != "It's stunned! BEAT IT UP!")
+        if (helpText.text != "BEAT IT UP!")
         {
             yield return new WaitForSecondsRealtime(waitTime);
             helpText.text = "";
