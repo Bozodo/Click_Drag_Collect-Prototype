@@ -1,0 +1,2 @@
+For this prototype I aimed to make something that involved fighting an opponent. Kind of like Dark Souls or any other action RPG.
+I just wanted to learn how to make a game where you can fight something.
